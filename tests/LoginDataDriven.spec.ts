@@ -51,7 +51,7 @@ for (const data of jsonTestdata) {
         if (data.expectedResult.toLowerCase() === "success") {
         
             expect (await myAccountPage.getMyAccountPageHeadingText()).toBe("My Account");
-            console.log("Ušao u IF");
+            console.log("Login successful");
 
         }
         else if (data.expectedResult.toLowerCase() === "fail")
@@ -61,7 +61,7 @@ for (const data of jsonTestdata) {
                 errorMessage ===("Warning: No match for E-Mail Address and/or Password.") ||
                 errorMessage ===("Warning: Your account has exceeded allowed number of login attempts. Please try again in 1 hour.")
             ).toBeTruthy();
-            console.log("Ušao u ELSE IF");
+            console.log("Login failed");
         }
 
     })

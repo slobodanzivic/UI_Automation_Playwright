@@ -2,14 +2,14 @@
 
     {
     "testName": "Login with valid credentials tc_01",
-    "email": "marko.guduric@test.com",
+    "email": "petar.krstic@qa.com",
     "password": "Test123?",
     "expectedResult":"success"
     },
 
     {
     "testName": "Login with valid credentials tc_02 ",
-    "email": "nikola.kalinic@test.com",
+    "email": "nikola.nikolic@qa.com",
     "password": "Test123?",
     "expectedResult": "success"
     },
