@@ -4,7 +4,7 @@ export class TestConfig{
 appUrl="https://tutorialsninja.com/demo/"
 
 //valid credentials:
-email="nikola.jokic@test.com"
+email="marko.guduric@test.com"
 password= "Test123?"
 
 //Unregistered email
