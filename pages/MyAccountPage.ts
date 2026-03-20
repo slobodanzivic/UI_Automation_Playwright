@@ -19,7 +19,7 @@ export class MyAccountPage{
     constructor(page:Page)      
     {
         this.page=page;
-        this.MyAccount=page.locator('h2:nth-child(1)');
+        this.MyAccount=page.locator('//h2[normalize-space()="My Account"]');
         this.LogoutLink=page.locator("li[class='dropdown open'] li:nth-child(5) a");
         this.EditAccountInformationLink=page.locator('//a[normalize-space()="Edit your account information"]');
         this.ChangePasswordLink=page.locator('//a[normalize-space()="Change your password"]');
@@ -55,6 +55,7 @@ export class MyAccountPage{
     {
         return await this.MyAccount.textContent() || "";
     }
+    
 
     //Click on Logout link
     async clickOnLogoutLink():Promise<void>
@@ -104,5 +105,5 @@ export class MyAccountPage{
         await this.logo.click();    
 
     }
-
 }
+

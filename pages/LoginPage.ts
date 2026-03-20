@@ -9,6 +9,7 @@ export class LoginPage{
     private readonly passwordInput:Locator;
     private readonly loginButton:Locator;   
     private readonly forgottenPasswordLink:Locator;
+    private readonly errorMessageLocator:Locator;
 
     //Constructor
     constructor(page:Page)
@@ -18,7 +19,9 @@ export class LoginPage{
         this.passwordInput=page.locator('input[name="password"]');
         this.loginButton=page.locator('input[value="Login"]');
         this.forgottenPasswordLink=page.locator('div.list-group a', {hasText: "Forgotten Password"});
+        this.errorMessageLocator=page.locator('.alert.alert-danger.alert-dismissible');
     }
+
 
     //Click on Email input box
     async clickOnEmailInput()
@@ -58,10 +61,17 @@ export class LoginPage{
         await this.forgottenPasswordLink.click();
     }   
 
-    async  getLoginErrorMessageText():Promise<string>{
-        const errorMessageLocator=this.page.locator('.alert.alert-danger.alert-dismissible');
-        return await errorMessageLocator.textContent() || "";
+    /*async  getLoginErrorMessageText():Promise<string>{
+        return await this.errorMessageLocator.textContent() || "";
     }
+        */
+
+    async getloginErrorMessage():Promise<null | string>{
+       
+        return(this.errorMessageLocator.innerText());
+    }
+        
+    
 
 }
 

@@ -1,10 +1,10 @@
 import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
-timeout: 40 * 1000, //40000 ms(30 secs)
+timeout: 30 * 1000, //30000 ms(30 secs)
 testDir: './tests',
 fullyParallel: true,
 //retries: process.env.CI ? 2 : 0,
-retries: 1,
+retries: 0,
 //workers: process.env.CI ? 1 : undefined,
 workers: 1,
 reporter: [
@@ -35,7 +35,7 @@ name: 'chromium',
 use: { ...devices['Desktop Chrome'] },
 },
 
-
+/*
 {
 name: 'firefox',
 use: { ...devices['Desktop Firefox'] },
@@ -44,7 +44,8 @@ use: { ...devices['Desktop Firefox'] },
 {
 name: 'webkit',
 use: { ...devices['Desktop Safari'] },
-} 
+}
+*/
 
 ]
 

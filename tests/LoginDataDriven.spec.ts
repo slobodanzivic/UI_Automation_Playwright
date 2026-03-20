@@ -32,8 +32,8 @@ for (const data of jsonTestdata) {
 
         const homePage = new HomePage(page);
         const loginPage = new LoginPage(page);
-        const myAccountPage = new MyAccountPage(page);
         const testConfig = new TestConfig();
+        const myAccountPage = new MyAccountPage(page);
 
         await page.goto(testConfig.appUrl);
         await homePage.clickOnMyAccount();
@@ -48,18 +48,20 @@ for (const data of jsonTestdata) {
         await loginPage.clickOnLoginButton();
 
 
-        if (data.expectedResult.toLowerCase() === "successfullogin") {
-            const myAccountHeadingText = await myAccountPage.getMyAccountPageHeadingText();
-            expect(myAccountHeadingText).toBe("My Account");
+        if (data.expectedResult.toLowerCase() === "success") {
+        
+            expect (await myAccountPage.getMyAccountPageHeadingText()).toBe("My Account");
+            console.log("Ušao u IF");
 
         }
-        else {
-            const errorMessage = await loginPage.getLoginErrorMessageText();
-            expect
-            (
-                errorMessage === "Warning: No match for E-Mail Address and/or Password." ||
-                errorMessage === "Warning: Your account has exceeded allowed number of login attempts. Please try again in 1 hour."
+        else if (data.expectedResult.toLowerCase() === "fail")
+        {
+            const errorMessage = (await loginPage.getloginErrorMessage())?.trim();
+            expect(
+                errorMessage ===("Warning: No match for E-Mail Address and/or Password.") ||
+                errorMessage ===("Warning: Your account has exceeded allowed number of login attempts. Please try again in 1 hour.")
             ).toBeTruthy();
+            console.log("Ušao u ELSE IF");
         }
 
     })

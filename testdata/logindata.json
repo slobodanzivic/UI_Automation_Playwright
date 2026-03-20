@@ -2,30 +2,30 @@
 
     {
     "testName": "Login with valid credentials tc_01",
-    "email": "slobodan.m.zivic@gmail.com",
+    "email": "slobodan.m.zivic@test.com",
     "password": "Test123?",
-    "expectedResult":"SuccessfulLogin"
+    "expectedResult":"success"
     },
 
     {
     "testName": "Login with valid credentials tc_02 ",
     "email": "marko.markovic@test.com",
     "password": "Test123?",
-    "expectedResult": "SuccessfulLogin"
+    "expectedResult": "success"
     },
 
     {
     "testName": "Login with invalid credentials tc_03",
     "email": "slobi123@test.com",
     "password": "Test456",
-    "expectedResult": "FailedLogin"
+    "expectedResult": "fail"
     },
 
     {
     "testName": "Login with empty email an valid password tc_04",
     "email": "",
     "password": "Test123?",
-    "expectedResult": "FailedLogin"
+    "expectedResult": "fail"
     },
 
     
@@ -33,14 +33,16 @@
     "testName": "Login with valid email and empty password tc_05 ",
     "email": "slobodan.m.zivic@gmail.com",
     "password": "",
-    "expectedResult": "FailedLogin"
+    "expectedResult": "fail"
     },
 
     {
     "testName": "Login with empty email an empty password  tc_06",
     "email": "",
     "password": "",
-    "expectedResult": "FailedLogin"
+    "expectedResult": "fail"
     }
+
+    
 
 ]
