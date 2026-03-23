@@ -13,7 +13,11 @@
     "test:clean": "rimraf allure-results",
     "allure:report": "allure generate allure-results --clean -o allure-report",
     "allure:serve": "allure serve allure-results",
-    "test:flaky": "npx playwright test --project=chromium --repeat-each=5"
+    "test:flaky": "npx playwright test --project=chromium --repeat-each=5",
+    "test:chrome": "npx playwright test --project=chrome-registration --project=chrome-login --project=chrome-addProductTowishlist --project=chrome-addToCart --project=chrome-forgotPassword --project=chrome-logout --project=chrome-removeProductFromWishlist --project=chrome-search --project=chrome-subscribeToNewsletter --project=chrome-change-password",
+    "test:firefox": "npx playwright test --project=firefox-registration --project=firefox-login --project=firefox-addProductTowishlist --project=firefox-addToCart --project=firefox-forgotPassword --project=firefox-logout --project=firefox-removeProductFromWishlist --project=firefox-search --project=firefox-subscribeToNewsletter --project=firefox-change-password",
+    "test:chrome-firefox": "npx playwright test --project=chrome-registration --project=chrome-login --project=chrome-addProductTowishlist --project=chrome-addToCart --project=chrome-forgotPassword --project=chrome-logout --project=chrome-removeProductFromWishlist --project=chrome-search --project=chrome-subscribeToNewsletter --project=chrome-change-password --project=firefox-registration --project=firefox-login --project=firefox-addProductTowishlist --project=firefox-addToCart --project=firefox-forgotPassword --project=firefox-logout --project=firefox-removeProductFromWishlist --project=firefox-search --project=firefox-subscribeToNewsletter --project=firefox-change-password",
+    "test:webkit": "npx playwright test --project=webkit-registration --project=webkit-login --project=webkit-addProductTowishlist --project=webkit-addToCart --project=webkit-forgotPassword --project=webkit-logout --project=webkit-removeProductFromWishlist --project=webkit-search --project=webkit-subscribeToNewsletter --project=webkit-change-password"
   },
   "keywords": [],
   "author": "",

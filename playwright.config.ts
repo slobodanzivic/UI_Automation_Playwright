@@ -35,7 +35,7 @@ permissions: ['geolocation'], // Set necessary permissions for geolocation-based
 
 projects: [
 
-    /*
+    
 
     // ✅ CHROMIUM
     { name: 'chrome-registration', testMatch: 'Registration.spec.ts', use: { ...devices['Desktop Chrome'] } },
@@ -62,7 +62,7 @@ projects: [
     { name: 'firefox-subscribeToNewsletter', testMatch: 'SubscribeToNewsletter.spec.ts', use: { ...devices['Desktop Firefox'], actionTimeout: 12000 }, dependencies: ['firefox-search'] },
     { name: 'firefox-change-password', testMatch: 'ChangePassword.spec.ts', use: { ...devices['Desktop Firefox'], actionTimeout: 12000 }, dependencies: ['firefox-subscribeToNewsletter'] },
 
-    */
+
 
     
     // ✅ WEBKIT
