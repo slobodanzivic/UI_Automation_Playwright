@@ -53,6 +53,7 @@ export class LoginPage{
     async clickOnLoginButton()
     {
         await this.loginButton.click();
+
     }
 
     //Click on Forgotten Password link

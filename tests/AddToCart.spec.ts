@@ -37,16 +37,18 @@ test.describe("Add to Cart Test Suite", () => {
         await page.goto("https://tutorialsninja.com/demo/");
     });
 
-    test.afterEach(async ({ page }) => {
-        await page.close();
-    });
+    //test.afterEach(async ({ page }) => {
+        //await page.close();
+    //});
 
     test("Add single product to shopping cart @master" , async ({ page }) => {
         // Step 2: Enter "iPhone" in the Search box
         await homePage.searchProduct(testConfig.mobileProductName);
 
         // Step 4: Click on the name of the product "iPhone"
-        await searchResultsPage.getProductTitleText();
+        //await searchResultsPage.getProductTitleText();
+        //await page.waitForTimeout(2000);
+
         await page.locator('a:has-text("iPhone")').click();
 
         // Step 5: Enter quantity in the input field Qty
@@ -54,7 +56,7 @@ test.describe("Add to Cart Test Suite", () => {
 
         // Step 6: Click on the button Add to Cart
         await productPage.clickAddToCart();
-        await page.waitForTimeout(3000);
+        //await page.waitForTimeout(3000);
 
         // Step 7: Verify if this message appears "Success: You have added iPhone to your shopping cart!"
         const successMessage = await productPage.getSuccessMessage();
@@ -76,7 +78,7 @@ test.describe("Add to Cart Test Suite", () => {
 
         await cartItems.clickOnXButton();
 
-        await page.waitForTimeout(3000);
+        //await page.waitForTimeout(3000);
 
 
     });
@@ -99,7 +101,7 @@ test.describe("Add to Cart Test Suite", () => {
         // Open the cart
         await homePage.clickOnCartButton();
 
-        await page.waitForTimeout(4000);
+        //await page.waitForTimeout(4000);
 
         // Verify both products are in the cart
         const cartProductNames = await cartItems.getAllCartProductNames();

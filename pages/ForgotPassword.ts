@@ -26,6 +26,7 @@ export class ForgotPasswordPage {
 
     //Click on Continue button
     async clickOnContinueButton() {
+            
         await this.continueButton.click();
     }
 

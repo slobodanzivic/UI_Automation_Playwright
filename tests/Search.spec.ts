@@ -34,11 +34,11 @@ test.describe("Search Functionality Test Suite @master",()=>{
     });
 
 
-    test.afterEach(async({page})=>{
+    //test.afterEach(async({page})=>{
       
-        await page.waitForTimeout(3000);
-        await page.close();
-    });
+        //await page.waitForTimeout(3000);
+        //await page.close();
+    //});
 
 
     test("Search Product Test: Searching for monitor",async({page})=>{

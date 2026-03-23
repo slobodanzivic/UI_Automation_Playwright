@@ -28,40 +28,55 @@ test.describe("Data Driven Login Test Suite @master", () => {
 
 for (const data of jsonTestdata) {
 
-    test(`Login test with data from JSON file: ${data.testName} @master` , async ({ page }) => {
+    test(`Login test with data from JSON file: ${data.testName} @master` , async ({ page, browserName }) => {
 
         const homePage = new HomePage(page);
         const loginPage = new LoginPage(page);
         const testConfig = new TestConfig();
         const myAccountPage = new MyAccountPage(page);
 
-        await page.goto(testConfig.appUrl);
-        await homePage.clickOnMyAccount();
-        await homePage.clickOnLogin();
+        try {
+            await page.goto(testConfig.appUrl, { waitUntil: 'networkidle' });
+            
+            await homePage.clickOnMyAccount();
+            await page.waitForTimeout(200);
+            
+            await homePage.clickOnLogin();
+            await page.waitForTimeout(200);
 
-        await loginPage.clickOnEmailInput();
-        await loginPage.enterEmailAddress(data.email);
+            await loginPage.clickOnEmailInput();
+            await loginPage.enterEmailAddress(data.email);
 
-        await loginPage.clickOnPasswordInput();
-        await loginPage.enterPassword(data.password);
+            await loginPage.clickOnPasswordInput();
+            await loginPage.enterPassword(data.password);
 
-        await loginPage.clickOnLoginButton();
+            await loginPage.clickOnLoginButton();
+            
+            // Wait for page to respond after login button click
+            await page.waitForLoadState('networkidle', { timeout: 5000 }).catch(() => {});
 
 
-        if (data.expectedResult.toLowerCase() === "success") {
-        
-            expect (await myAccountPage.getMyAccountPageHeadingText()).toBe("My Account");
-            console.log("Login successful");
+            if (data.expectedResult.toLowerCase() === "success") {
+            
+                await page.locator('//h2[normalize-space()="My Account"]').waitFor({ timeout: 3000 });
+                const headingText = await myAccountPage.getMyAccountPageHeadingText();
+                expect(headingText).toBe("My Account");
+                console.log("Login successful");
 
-        }
-        else if (data.expectedResult.toLowerCase() === "fail")
-        {
-            const errorMessage = (await loginPage.getloginErrorMessage())?.trim();
-            expect(
-                errorMessage ===("Warning: No match for E-Mail Address and/or Password.") ||
-                errorMessage ===("Warning: Your account has exceeded allowed number of login attempts. Please try again in 1 hour.")
-            ).toBeTruthy();
-            console.log("Login failed");
+            }
+            else if (data.expectedResult.toLowerCase() === "fail")
+            {
+                await page.locator('.alert.alert-danger.alert-dismissible').waitFor({ timeout: 3000 });
+                const errorMessage = (await loginPage.getloginErrorMessage())?.trim();
+                expect(
+                    errorMessage ===("Warning: No match for E-Mail Address and/or Password.") ||
+                    errorMessage ===("Warning: Your account has exceeded allowed number of login attempts. Please try again in 1 hour.")
+                ).toBeTruthy();
+                console.log("Login failed");
+            }
+        } catch (error) {
+            console.error(`Test failed for data: ${data.testName}`, error);
+            throw error;
         }
 
     })

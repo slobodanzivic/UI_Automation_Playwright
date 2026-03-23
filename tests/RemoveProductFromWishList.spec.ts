@@ -4,6 +4,8 @@ import { MyAccountPage } from '../pages/MyAccountPage';
 import { TestConfig } from '../test.config';
 import { NewsletterSubscriptionPage } from '../pages/NewsLetter';
 import { MyWishListPage } from '../pages/MyWishList';
+import { saveCredentials } from '../utils/testDataStore';
+import { loadCredentials } from '../utils/testDataStore';
 
 test.describe('Remove Product from Wish List Tests', () => {
 
@@ -24,18 +26,21 @@ test.describe('Remove Product from Wish List Tests', () => {
         await page.goto(testConfig.appUrl);
     });
 
-    test.afterEach(async ({ page }) => {
-        await page.close();
-    });
+    //test.afterEach(async ({ page }) => {
+        //await page.close();
+    //});
 
 
-    test('Remove Product from Wish List from My Wish List Page @master', async ({ page }) => {
+    test('Remove Product from Wish List from My Wish List Page @master', async ({ page, browserName }) => {
+
+        const credentials = loadCredentials(browserName);
+        if (!credentials) throw new Error('No credentials found.');
 
         //Login to the application  
         await homePage.clickOnMyAccount();
         await homePage.clickOnLogin();
-        await page.locator('input[name="email"]').fill(testConfig.email);
-        await page.locator('input[name="password"]').fill(testConfig.password);
+        await page.locator('input[name="email"]').fill(credentials.randomEmail);
+        await page.locator('input[name="password"]').fill(credentials.randomPassword);
         await page.locator('input[value="Login"]').click();
         await page.waitForTimeout(2000);
 

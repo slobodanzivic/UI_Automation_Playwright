@@ -25,6 +25,8 @@ export class ChangePassword{
     async enterNewPassword(newPassword:string):Promise<void>
     {
         await this.inputPassword.click();
+        //clear the input field before entering new password
+        await this.inputPassword.fill('');
         await this.inputPassword.fill(newPassword);
     }
 

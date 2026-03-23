@@ -18,6 +18,7 @@ import{TestConfig}from"../test.config";
 import { RegistrationPage } from "../pages/RegistrationPage";
 import { RandomDataProvider } from "../utils/randomDataProvider";
 import { RegistrationConfirmationPage } from "../pages/RegistrationConfirmationPage";
+import { saveCredentials} from "../utils/testDataStore";
 
 //Declare variables
 let testConfig:TestConfig;
@@ -35,13 +36,12 @@ test.beforeEach(async({page})=>{
     await page.goto(testConfig.appUrl);
 })
 
-test.afterEach(async({page})=>{
-    await page.waitForTimeout(3000);
-    await page.close();
-})
+//test.afterEach(async({page})=>{
+    //await page.waitForTimeout(1000);
+//})
 
 
-test('Register to the application @master',async({page})=>{ 
+test('Register to the application @master',async({page,browserName})=>{ 
 
     // Add further registration steps here
     await homePage.clickOnMyAccount();
@@ -53,14 +53,23 @@ test('Register to the application @master',async({page})=>{
     await registrationPage.clickOnLastNameInput();
     await registrationPage.enterLastName(RandomDataProvider.getRandomLastName());
 
+    // Generate a random email address for registration and store it in a variable 'randomEmail' for later use
     await registrationPage.clickOnEmailInput();
-    await registrationPage.enterEmailAddress(RandomDataProvider.getRandomEmail());
+    const randomEmail = RandomDataProvider.getRandomEmail();
+    await registrationPage.enterEmailAddress(randomEmail);
+
+    console.log("Generated random email for registration: " + randomEmail);
 
     await registrationPage.clickOnTelephoneInput();
     await registrationPage.enterTelephone(RandomDataProvider.getRandomTelephone());
 
+
+    // Generate a random password for registration and store it in a variable 'randomPassword' for later use
     await registrationPage.clickOnPasswordInput();
-    await registrationPage.enterPassword(RandomDataProvider.getRandomPassword());
+    const randomPassword = RandomDataProvider.getRandomPassword();
+    await registrationPage.enterPassword(randomPassword);
+    console.log("Generated random password for registration: " + randomPassword);   
+
     const passwordText = await registrationPage.getPasswordInputText();
 
     await registrationPage.clickOnConfirmPasswordInput();
@@ -76,6 +85,14 @@ test('Register to the application @master',async({page})=>{
     //Assertion to verify successful registration 
     const confirmationMessageText = await registrationConfirmationPage.getConfirmationMessageText();
     expect(confirmationMessageText).toBe("Your Account Has Been Created!");
+
+    
+    // Save the registered email and password to the TestDataStore for later use in login tests
+    saveCredentials(randomEmail, randomPassword, browserName);
+
+    console.log("Saved random email and password to TestDataStore for later use in login tests." + randomEmail + " | " + randomPassword);
+
+
 
 })
 

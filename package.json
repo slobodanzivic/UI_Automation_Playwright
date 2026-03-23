@@ -14,14 +14,12 @@
     "allure:report": "allure generate allure-results --clean -o allure-report",
     "allure:serve": "allure serve allure-results",
     "test:flaky": "npx playwright test --project=chromium --repeat-each=5"
-
   },
-
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.57.0",
+    "@playwright/test": "^1.58.2",
     "@types/node": "^25.0.9",
     "allure-playwright": "^3.4.5",
     "rimraf": "^6.1.2"

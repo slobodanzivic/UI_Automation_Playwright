@@ -113,6 +113,7 @@ export class HomePage {
 
     //Click on ProductName
     async clickOnProductName(){
+        await this.commonProductName.waitFor({ state: "visible" });
         await this.commonProductName.click();
     }
 

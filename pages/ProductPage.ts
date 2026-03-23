@@ -30,6 +30,7 @@ export class ProductPage {
 
   // Get success message text
   async getSuccessMessage(): Promise<string> {
+    await this.successMessage.waitFor({ state: "visible" });
     return (await this.successMessage.textContent()) || "";
   }
 

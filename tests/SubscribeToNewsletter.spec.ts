@@ -3,6 +3,7 @@ import {HomePage} from "../pages/HomePage"
 import {MyAccountPage} from "../pages/MyAccountPage"
 import {TestConfig} from "../test.config"
 import {NewsletterSubscriptionPage} from "../pages/NewsLetter"  
+import { loadCredentials } from '../utils/testDataStore';
 
 
 test.describe('Newsletter Subscription Tests',()=>{
@@ -23,18 +24,21 @@ test.describe('Newsletter Subscription Tests',()=>{
         await page.goto(testConfig.appUrl);
     });
 
-    test.afterEach(async ({ page }) => {
-        await page.close();
-    }); 
+    //test.afterEach(async ({ page }) => {
+       // await page.close();
+    //}); 
 
 
-    test('Subscribe to Newsletter from My Account Page @master', async ({ page }) => {
+    test('Subscribe to Newsletter from My Account Page @master', async ({ page, browserName }) => {
+
+        const credentials = loadCredentials(browserName);
+        if (!credentials) throw new Error('No credentials found.');
 
         //Login to the application
         await homePage.clickOnMyAccount();
         await homePage.clickOnLogin();
-        await page.locator('input[name="email"]').fill(testConfig.email);
-        await page.locator('input[name="password"]').fill(testConfig.password);
+        await page.locator('input[name="email"]').fill(credentials.randomEmail);
+        await page.locator('input[name="password"]').fill(credentials.randomPassword);
         await page.locator('input[value="Login"]').click();
 
         //Click on "Subscribe / unsubscribe to newsletter" link
@@ -51,13 +55,16 @@ test.describe('Newsletter Subscription Tests',()=>{
         expect(successMessageText).toContain("Success: Your newsletter subscription has been successfully updated!");
     });
 
-    test('Unsubscribe from Newsletter from My Account Page @master', async ({ page }) => {
+    test('Unsubscribe from Newsletter from My Account Page @master', async ({ page, browserName }) => {
+
+        const credentials = loadCredentials(browserName);
+        if (!credentials) throw new Error('No credentials found.');
         
         //Login to the application
         await homePage.clickOnMyAccount();
         await homePage.clickOnLogin();
-        await page.locator('input[name="email"]').fill(testConfig.email);
-        await page.locator('input[name="password"]').fill(testConfig.password);
+        await page.locator('input[name="email"]').fill(credentials.randomEmail);
+        await page.locator('input[name="password"]').fill(credentials.randomPassword);
         await page.locator('input[value="Login"]').click();
 
         //Click on "Subscribe / unsubscribe to newsletter" link

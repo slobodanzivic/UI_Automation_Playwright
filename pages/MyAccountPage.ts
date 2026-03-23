@@ -22,7 +22,8 @@ export class MyAccountPage{
         this.MyAccount=page.locator('//h2[normalize-space()="My Account"]');
         this.LogoutLink=page.locator("li[class='dropdown open'] li:nth-child(5) a");
         this.EditAccountInformationLink=page.locator('//a[normalize-space()="Edit your account information"]');
-        this.ChangePasswordLink=page.locator('//a[normalize-space()="Change your password"]');
+        this.ChangePasswordLink = page.getByRole('link', { name: 'Change your password' });
+        //this.ChangePasswordLink=page.locator('//a[normalize-space()="Change your password"]');
         this.ModifyAddressBookEntriesLink=page.locator('//a[normalize-space()="Modify your address book entries"]');
         this.ModifyYourWishList=page.locator('//a[normalize-space()="Modify your wish list"]');
         this.successMessage=page.locator('.alert.alert-success.alert-dismissible');
@@ -72,7 +73,8 @@ export class MyAccountPage{
     //Click on "Change your password" link
     async clickOnChangePasswordLink():Promise<void>
     {
-        await this.ChangePasswordLink.click();
+      await this.ChangePasswordLink.click();
+      
     }
     
     //Click on "Modify your address book entries" link

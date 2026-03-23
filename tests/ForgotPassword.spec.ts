@@ -3,6 +3,8 @@ import { HomePage } from '../pages/HomePage';
 import { ForgotPasswordPage } from '../pages/ForgotPassword';
 import { TestConfig } from '../test.config';
 import { LoginPage } from '../pages/LoginPage';
+import { saveCredentials } from '../utils/testDataStore';
+import { loadCredentials } from '../utils/testDataStore';
 
 test.describe('Forgot Password Tests', () => {
 
@@ -22,11 +24,14 @@ test.describe('Forgot Password Tests', () => {
         await page.goto(testConfig.appUrl);
     });
 
-    test.afterEach(async ({ page }) => {
-        await page.close();
-    });
+    //test.afterEach(async ({ page }) => {
+        //await page.close();
+    //});
 
-    test('Verify Forgot Password with valid registered email @master', async ({ page }) => {
+    test('Verify Forgot Password with valid registered email @master', async ({ page, browserName }) => {
+
+        const credentials = loadCredentials(browserName);
+        if (!credentials) throw new Error('No credentials found.');
 
         //Navigate to Login Page
         await homePage.clickOnMyAccount();
@@ -36,7 +41,7 @@ test.describe('Forgot Password Tests', () => {
         await loginPage.clickOnForgottenPasswordLink();
 
         //Enter registered email address
-        await forgotPasswordPage.enterEmailAddress(testConfig.email);
+        await forgotPasswordPage.enterEmailAddress(credentials.randomEmail);
 
         //Click on Continue button
         await forgotPasswordPage.clickOnContinueButton();
