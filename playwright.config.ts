@@ -32,12 +32,12 @@ export default defineConfig({
     //grep: /@master/,
 
 
-        
-    
+
+
     projects: [
 
- 
-       
+
+
 
         // ✅ CHROMIUM
         { name: 'chrome-registration', testMatch: 'Registration.spec.ts', use: { ...devices['Desktop Chrome'] } },
@@ -66,10 +66,10 @@ export default defineConfig({
         { name: 'firefox-subscribeToNewsletter', testMatch: 'SubscribeToNewsletter.spec.ts', use: { ...devices['Desktop Firefox'], actionTimeout: 12000 }, dependencies: ['firefox-search'] },
         { name: 'firefox-change-password', testMatch: 'ChangePassword.spec.ts', use: { ...devices['Desktop Firefox'], actionTimeout: 12000 }, dependencies: ['firefox-subscribeToNewsletter'] },
 
-        
 
-        /*
-        
+
+
+
         // ✅ WEBKIT
         { name: 'webkit-registration', testMatch: 'Registration.spec.ts', use: { ...devices['Desktop Safari'], actionTimeout: 30000 } },
         { name: 'webkit-invalidLogin', testMatch: 'LoginDataDriven.spec.ts', use: { ...devices['Desktop Safari'], actionTimeout: 30000 }, dependencies: ['webkit-registration'] },
@@ -82,9 +82,9 @@ export default defineConfig({
         { name: 'webkit-search', testMatch: 'Search.spec.ts', use: { ...devices['Desktop Safari'], actionTimeout: 30000 }, dependencies: ['webkit-removeProductFromWishlist'] },
         { name: 'webkit-subscribeToNewsletter', testMatch: 'SubscribeToNewsletter.spec.ts', use: { ...devices['Desktop Safari'], actionTimeout: 30000 }, dependencies: ['webkit-search'] },
         { name: 'webkit-change-password', testMatch: 'ChangePassword.spec.ts', use: { ...devices['Desktop Safari'], actionTimeout: 30000 }, dependencies: ['webkit-subscribeToNewsletter'] },
-        
-        */
-      
+
+
+
 
 
         /*
@@ -116,8 +116,8 @@ export default defineConfig({
 
         */
 
-]
-        
+    ]
+
 
 
 });
