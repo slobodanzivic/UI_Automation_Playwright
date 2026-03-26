@@ -9,7 +9,7 @@ export class MyWishListPage {
     private readonly removeButton: Locator;
     private readonly tableSelector: Locator
     private readonly successMessage: Locator;
-    private readonly emptyWishListMessage: Locator; 
+    private readonly emptyWishListMessage: Locator;
 
     // Constructor
     constructor(page: Page) {
@@ -35,7 +35,7 @@ export class MyWishListPage {
     //Get text from success message
     async getSuccessMessageText(): Promise<string> {
         return await this.successMessage.textContent() || "";
-    }   
+    }
 
     //Get text from empty Wish List message
     async getEmptyWishListMessageText(): Promise<string> {

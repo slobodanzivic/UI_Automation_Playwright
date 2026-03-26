@@ -14,9 +14,9 @@ export class HomePage {
     private readonly cartButton: Locator;
     private readonly commonProductName: Locator;
     private readonly commonAddToWishListButton: Locator;
-    private readonly wishListLink: Locator; 
+    private readonly wishListLink: Locator;
     private readonly wishListZero: Locator;
-    
+
 
 
     //Constructor
@@ -32,7 +32,7 @@ export class HomePage {
         this.commonProductName = page.locator('div.caption h4 a');
         this.commonAddToWishListButton = page.locator('button[data-original-title="Add to Wish List"]');
         this.wishListLink = page.locator('a[id="wishlist-total"] span[class="hidden-xs hidden-sm hidden-md"]');
-        this.wishListZero = page.locator('div#top-links ul li:nth-child(3) a span', {hasText:"Wish List (0)"});
+        this.wishListZero = page.locator('div#top-links ul li:nth-child(3) a span', { hasText: "Wish List (0)" });
     }
 
     async isHomePageExists() {
@@ -112,21 +112,21 @@ export class HomePage {
     }
 
     //Click on ProductName
-    async clickOnProductName(){
+    async clickOnProductName() {
         await this.commonProductName.waitFor({ state: "visible" });
         await this.commonProductName.click();
     }
 
     //Click on Wish List link
-    async clickOnWishListLink(){
+    async clickOnWishListLink() {
         await this.wishListLink.click();
-    }   
+    }
 
     //Is locator wishListZero visible   
     async isWishListZeroVisible(): Promise<boolean> {
         return await this.wishListZero.isVisible();
     }
-    
+
     async addProductToWishList() {
 
         const productCount = await this.commonProductName.count();

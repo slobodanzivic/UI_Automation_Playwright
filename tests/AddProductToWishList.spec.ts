@@ -26,9 +26,7 @@ test.describe('Add Product to Wish List Tests', () => {
         await page.goto(testConfig.appUrl);
     });
 
-    //test.afterEach(async ({ page }) => {
-        //await page.close();
-    //});
+   
 
     test('Add Product to Wish List from Home Page @master', async ({ page, browserName }) => {
 

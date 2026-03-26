@@ -24,10 +24,7 @@ test.describe('Newsletter Subscription Tests',()=>{
         await page.goto(testConfig.appUrl);
     });
 
-    //test.afterEach(async ({ page }) => {
-       // await page.close();
-    //}); 
-
+    
 
     test('Subscribe to Newsletter from My Account Page @master', async ({ page, browserName }) => {
 

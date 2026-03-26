@@ -36,9 +36,7 @@ test.beforeEach(async({page})=>{
     await page.goto(testConfig.appUrl);
 })
 
-//test.afterEach(async({page})=>{
-    //await page.waitForTimeout(1000);
-//})
+
 
 
 test('Register to the application @master',async({page,browserName})=>{ 

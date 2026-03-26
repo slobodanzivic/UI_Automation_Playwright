@@ -1,4 +1,4 @@
-import {Page, Locator} from "@playwright/test";
+import { Page, Locator } from "@playwright/test";
 
 export class LogoutConfirmationPage {
     //Page instance
@@ -11,7 +11,7 @@ export class LogoutConfirmationPage {
     constructor(page: Page) {
         this.page = page;
         this.logoutConfirmationMessage = page.locator("div[id='content'] h1");
-    }   
+    }
 
     //Get logout confirmation message text
     async getLogoutConfirmationMessageText(): Promise<string> {

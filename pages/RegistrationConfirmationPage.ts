@@ -1,25 +1,25 @@
-import{Page, Locator}from"@playwright/test";    
+import { Page, Locator } from "@playwright/test";
 
-export class RegistrationConfirmationPage{
+export class RegistrationConfirmationPage {
 
     //Page instance
-    private readonly page:Page;
+    private readonly page: Page;
 
     // Locators
-    private readonly confirmationMessage:Locator;   
+    private readonly confirmationMessage: Locator;
 
     // Initialize locators in the constructor
-    constructor(page:Page){
-        this.page=page;
-        this.confirmationMessage=page.locator("div[id='content'] h1");       
-    }   
+    constructor(page: Page) {
+        this.page = page;
+        this.confirmationMessage = page.locator("div[id='content'] h1");
+    }
 
     //Get confirmation message text
-    async getConfirmationMessageText():Promise<string>{
-        try{
+    async getConfirmationMessageText(): Promise<string> {
+        try {
             return await this.confirmationMessage.textContent() ?? "";
         }
-        catch(error){
+        catch (error) {
             console.log(`Exception occured while getting confirmation message text: ${error}`);
             throw error;
         }

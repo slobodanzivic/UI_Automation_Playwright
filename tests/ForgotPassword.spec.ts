@@ -24,9 +24,7 @@ test.describe('Forgot Password Tests', () => {
         await page.goto(testConfig.appUrl);
     });
 
-    //test.afterEach(async ({ page }) => {
-        //await page.close();
-    //});
+   
 
     test('Verify Forgot Password with valid registered email @master', async ({ page, browserName }) => {
 

@@ -26,9 +26,7 @@ test.describe('Remove Product from Wish List Tests', () => {
         await page.goto(testConfig.appUrl);
     });
 
-    //test.afterEach(async ({ page }) => {
-        //await page.close();
-    //});
+    
 
 
     test('Remove Product from Wish List from My Wish List Page @master', async ({ page, browserName }) => {

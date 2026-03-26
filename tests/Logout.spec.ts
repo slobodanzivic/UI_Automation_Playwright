@@ -38,10 +38,7 @@ test.beforeEach(async ({ page }) => {
     await page.goto(testConfig.appUrl);
 })
 
-//test.afterEach(async ({ page }) => {
-    //await page.waitForTimeout(3000);
-    //await page.close();
-//})  
+ 
 test('Logout Test @master', async ({ page, browserName }) => {
 
     const credentials = loadCredentials(browserName);

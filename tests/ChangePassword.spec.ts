@@ -26,12 +26,7 @@ test.describe('Change Password Tests', () => {
 
     });
 
-    /*test.afterEach(async ({ page }) => {
-        //await page.waitForTimeout(2000);
-        await page.close();
-    });
-
-    */
+   
 
     test('Change Password with valid data @master', async ({ page, browserName }) => {
 

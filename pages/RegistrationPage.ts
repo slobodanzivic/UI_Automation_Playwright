@@ -98,13 +98,13 @@ export class RegistrationPage {
     //Click on confirm password input box
     async clickOnConfirmPasswordInput() {
         await this.confirmPasswordInput.click();
-    }   
+    }
 
     //  Enter confirm password
     async enterConfirmPassword(confirmPassword: string) {
         await this.confirmPasswordInput.fill(confirmPassword);
     }
-   
+
 
     // Select newsletter subscription
     async selectNewsletter(newsletter: boolean) {

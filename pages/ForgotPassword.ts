@@ -1,6 +1,6 @@
-import {Locator, Page} from '@playwright/test';
+import { Locator, Page } from '@playwright/test';
 
-export class ForgotPasswordPage {   
+export class ForgotPasswordPage {
 
     private readonly page: Page;
 
@@ -26,14 +26,14 @@ export class ForgotPasswordPage {
 
     //Click on Continue button
     async clickOnContinueButton() {
-            
+
         await this.continueButton.click();
     }
 
     //Get success message text
     async getSuccessMessageText(): Promise<string> {
         return await this.successMessage.textContent() || "";
-    }   
+    }
 
     //Get error message text
     async getErrorMessageText(): Promise<string> {

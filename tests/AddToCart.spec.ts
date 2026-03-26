@@ -37,9 +37,7 @@ test.describe("Add to Cart Test Suite", () => {
         await page.goto("https://tutorialsninja.com/demo/");
     });
 
-    //test.afterEach(async ({ page }) => {
-        //await page.close();
-    //});
+   
 
     test("Add single product to shopping cart @master" , async ({ page }) => {
         // Step 2: Enter "iPhone" in the Search box
