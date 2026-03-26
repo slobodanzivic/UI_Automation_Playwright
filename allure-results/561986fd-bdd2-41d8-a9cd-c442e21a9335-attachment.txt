@@ -1,0 +1,2 @@
+Search results header contains product name: Canon EOS 5D
+Product title contains product name: Canon EOS 5D

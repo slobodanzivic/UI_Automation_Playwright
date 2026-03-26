@@ -1,0 +1,8 @@
+Email is used for login: Yasmeen_Feest66@hotmail.com
+Password is used for login: BHVMDl5aLPD3i9f
+New password entered: AySd9gK1ec7fesG
+Confirm password entered: AySd9gK1ec7fesG
+Email is used for login after password change: Yasmeen_Feest66@hotmail.com
+New password is used for login: AySd9gK1ec7fesG
+Original password entered for reset: BHVMDl5aLPD3i9f
+Original confirm password entered for reset: BHVMDl5aLPD3i9f

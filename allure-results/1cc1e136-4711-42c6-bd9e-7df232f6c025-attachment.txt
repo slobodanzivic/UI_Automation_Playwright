@@ -1,0 +1,3 @@
+Generated random email for registration: Bennett_Borer@hotmail.com
+Generated random password for registration: Wye_DUYhdvNztDR
+Saved random email and password to TestDataStore for later use in login tests.Bennett_Borer@hotmail.com | Wye_DUYhdvNztDR

@@ -1,0 +1,8 @@
+Email is used for login: Derrick.Gusikowski42@yahoo.com
+Password is used for login: 7Sd_K7JuCPS8nup
+New password entered: CxN7Sli9IJR5Ezj
+Confirm password entered: CxN7Sli9IJR5Ezj
+Email is used for login after password change: Derrick.Gusikowski42@yahoo.com
+New password is used for login: CxN7Sli9IJR5Ezj
+Original password entered for reset: 7Sd_K7JuCPS8nup
+Original confirm password entered for reset: 7Sd_K7JuCPS8nup

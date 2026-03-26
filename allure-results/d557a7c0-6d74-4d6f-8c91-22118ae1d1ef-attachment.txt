@@ -1,0 +1,3 @@
+Generated random email for registration: Everette.Rowe-Emmerich@yahoo.com
+Generated random password for registration: 8_zWcvAMQtlz8qj
+Saved random email and password to TestDataStore for later use in login tests.Everette.Rowe-Emmerich@yahoo.com | 8_zWcvAMQtlz8qj

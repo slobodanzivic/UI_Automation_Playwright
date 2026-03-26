@@ -3,10 +3,6 @@ export class TestConfig{
 //base Url 
 appUrl="https://tutorialsninja.com/demo/"
 
-//valid credentials:
-email="petar.krstic@qa.com"
-password= "Test123?"
-
 //Unregistered email
 unregisteredEmail="unregistered@example.com"
 

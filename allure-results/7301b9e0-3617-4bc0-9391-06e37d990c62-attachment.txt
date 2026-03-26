@@ -1,0 +1,8 @@
+Email is used for login: Archibald.Purdy@yahoo.com
+Password is used for login: xnkRJeuYgG7_Vcl
+New password entered: l7d_vhztQcNJvfu
+Confirm password entered: l7d_vhztQcNJvfu
+Email is used for login after password change: Archibald.Purdy@yahoo.com
+New password is used for login: l7d_vhztQcNJvfu
+Original password entered for reset: xnkRJeuYgG7_Vcl
+Original confirm password entered for reset: xnkRJeuYgG7_Vcl

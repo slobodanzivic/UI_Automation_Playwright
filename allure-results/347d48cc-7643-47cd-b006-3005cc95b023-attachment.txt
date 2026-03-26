@@ -1,0 +1,8 @@
+Email is used for login: Bennett_Borer@hotmail.com
+Password is used for login: Wye_DUYhdvNztDR
+New password entered: 2hLNDVbcwI_pgt0
+Confirm password entered: 2hLNDVbcwI_pgt0
+Email is used for login after password change: Bennett_Borer@hotmail.com
+New password is used for login: 2hLNDVbcwI_pgt0
+Original password entered for reset: Wye_DUYhdvNztDR
+Original confirm password entered for reset: Wye_DUYhdvNztDR

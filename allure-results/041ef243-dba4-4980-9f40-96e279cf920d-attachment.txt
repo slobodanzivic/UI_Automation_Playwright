@@ -1,0 +1,8 @@
+Email is used for login: Aylin_Howe@hotmail.com
+Password is used for login: OUGCR8W3udiQPpi
+New password entered: Lt4fEa8RxTyfbwC
+Confirm password entered: Lt4fEa8RxTyfbwC
+Email is used for login after password change: Aylin_Howe@hotmail.com
+New password is used for login: Lt4fEa8RxTyfbwC
+Original password entered for reset: OUGCR8W3udiQPpi
+Original confirm password entered for reset: OUGCR8W3udiQPpi
